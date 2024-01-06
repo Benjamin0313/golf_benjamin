@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>記事のタイトル</title>
+    <link rel="stylesheet" href="../../../style.css"> <!-- style.cssへのリンクを追加 -->
+</head>
+<body>
+    <div class="container">
+        <div class="centered-title">
+            <a href="../../../index.html" class="fixed-button">BJ</a>
+            <h1>初めてみました</h1>
+        </div>
+        <p class="date right-aligned">更新日: 2024年1月7日</p>
+        <p class="summary">ブログを書こうと思ったので一旦初めてみます。</p>
+        <p class="summary">よろしくお願いします。</p>
+        
+    </div>
+
+    <!-- 目次の生成 -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var toc = document.getElementById("toc-list");
+            var headings = document.querySelectorAll(".content h2, .summary h2, .references h2");
+
+            headings.forEach(function(heading) {
+                var id = heading.parentNode.id;
+                var listItem = document.createElement("li");
+                var link = document.createElement("a");
+                link.href = "#" + id;
+                link.textContent = heading.textContent;
+                listItem.appendChild(link);
+                toc.appendChild(listItem);
+            });
+        });
+    </script>
+</body>
+</html>
